@@ -19,7 +19,7 @@ const __dirname = dirname(__filename);
 
 // ─── Configuration ──────────────────────────────────────────
 const CONFIG = {
-  contentDir: resolve(__dirname, '../docs'),
+  contentDir: resolve(__dirname, 'content'),
   outputDir: resolve(__dirname, 'dist'),
   templateDir: resolve(__dirname, 'templates'),
   assetsDir: resolve(__dirname, 'assets'),
@@ -69,16 +69,18 @@ function parseInline(text) {
 
   // Links
   result = result.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, linkText, href) => {
-    // Convert .md links to .html
+    // Convert .md links to clean URLs (no .html extension)
     let fixedHref = href;
     if (fixedHref.endsWith('.md')) {
-      fixedHref = fixedHref.replace(/\.md$/, '.html');
+      // README.md → parent directory
+      fixedHref = fixedHref.replace(/\/README\.md$/, '').replace(/^README\.md$/, '/');
+      // other.md → other (strip extension)
+      fixedHref = fixedHref.replace(/\.md$/, '');
     }
-    if (fixedHref.endsWith('/')) {
-      fixedHref = fixedHref + 'index.html';
+    // Remove trailing slash (except root)
+    if (fixedHref.length > 1 && fixedHref.endsWith('/')) {
+      fixedHref = fixedHref.slice(0, -1);
     }
-    // Fix README.md → index.html
-    fixedHref = fixedHref.replace(/README\.html/g, 'index.html');
     const isExternal = /^https?:\/\//.test(fixedHref);
     const target = isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
     return `<a href="${fixedHref}"${target}>${parseInline(linkText)}</a>`;
@@ -424,15 +426,22 @@ function parseSummary(summaryPath) {
       const title = itemMatch[1].trim();
       let path = itemMatch[2].trim();
 
-      // Convert README.md → index.html, others → .html
+      // Convert to clean URLs: README.md → index.html, others → dir/index.html
       let htmlPath = path;
+      let cleanPath;
       if (htmlPath === 'README.md') {
         htmlPath = 'index.html';
+        cleanPath = '/';
+      } else if (htmlPath.endsWith('/README.md')) {
+        htmlPath = htmlPath.replace(/README\.md$/, 'index.html');
+        cleanPath = '/' + htmlPath.replace(/\/index\.html$/, '');
       } else {
-        htmlPath = htmlPath.replace(/README\.md$/, 'index.html').replace(/\.md$/, '.html');
+        // e.g. trading/opening-positions.md → trading/opening-positions/index.html
+        htmlPath = htmlPath.replace(/\.md$/, '/index.html');
+        cleanPath = '/' + htmlPath.replace(/\/index\.html$/, '');
       }
 
-      const item = { title, mdPath: path, htmlPath, path: '/' + htmlPath };
+      const item = { title, mdPath: path, htmlPath, path: cleanPath };
       if (currentGroup) {
         currentGroup.items.push(item);
       } else {
@@ -657,7 +666,7 @@ function build() {
   // Build sitemap.xml for SEO
   const sitemapEntries = pages.map(p => {
     const loc = CONFIG.siteUrl + p.path;
-    return `  <url><loc>${loc}</loc><changefreq>weekly</changefreq><priority>${p.path === '/index.html' ? '1.0' : '0.7'}</priority></url>`;
+    return `  <url><loc>${loc}</loc><changefreq>weekly</changefreq><priority>${p.path === '/' ? '1.0' : '0.7'}</priority></url>`;
   });
   const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapEntries.join('\n')}\n</urlset>`;
   writeFileSync(join(CONFIG.outputDir, 'sitemap.xml'), sitemapXml);
