@@ -1,7 +1,7 @@
 {
   "name": "exolane-docs",
   "version": "1.0.0",
-  "description": "Exolane documentation — lightweight static site generator, zero external dependencies",
+  "description": "Exolane documentation",
   "private": true,
   "scripts": {
     "build": "node build.mjs",
