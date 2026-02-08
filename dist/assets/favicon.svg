@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <defs>
+    <linearGradient id="fgrd" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#58a6ff"/>
+    </linearGradient>
+    <mask id="fmask">
+      <rect width="32" height="32" fill="white"/>
+      <polygon points="16,10 21,16 16,22 11,16" fill="black"/>
+    </mask>
+  </defs>
+  <rect width="32" height="32" rx="7" fill="url(#fgrd)"/>
+  <g mask="url(#fmask)">
+    <polygon points="10,5 22,5 28,16 22,27 10,27 4,16" fill="white" opacity="0.95"/>
+    <polygon points="4,16 10,27 16,16 10,5" fill="white" opacity="0.7"/>
+  </g>
+</svg>

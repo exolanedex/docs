@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://docs.exolane.com/index.html</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://docs.exolane.com/getting-started/what-is-exolane.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://docs.exolane.com/getting-started/quick-start.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://docs.exolane.com/trading/index.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://docs.exolane.com/trading/opening-positions.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://docs.exolane.com/trading/managing-positions.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://docs.exolane.com/trading/closing-positions.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://docs.exolane.com/trading/collateral-and-margin.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://docs.exolane.com/trading/leverage.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://docs.exolane.com/trading/order-types.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://docs.exolane.com/protocol/index.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://docs.exolane.com/protocol/funding-rates.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://docs.exolane.com/protocol/fees.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://docs.exolane.com/protocol/liquidations.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://docs.exolane.com/protocol/oracles.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://docs.exolane.com/protocol/settlement.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://docs.exolane.com/markets/index.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://docs.exolane.com/markets/parameters.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://docs.exolane.com/security/index.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://docs.exolane.com/security/audits.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://docs.exolane.com/security/risk-disclosure.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://docs.exolane.com/resources/faq.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://docs.exolane.com/resources/glossary.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://docs.exolane.com/resources/links.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://docs.exolane.com/legal/terms.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://docs.exolane.com/legal/privacy.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+</urlset>

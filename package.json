@@ -1,0 +1,16 @@
+{
+  "name": "exolane-docs",
+  "version": "1.0.0",
+  "description": "Exolane documentation — lightweight static site generator, zero external dependencies",
+  "private": true,
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node build.mjs --watch",
+    "serve": "node serve.mjs",
+    "clean": "rm -rf dist"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Risk Disclosure | Exolane Docs</title>
+  <meta name="description" content="Important risks to understand before using Exolane">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <link rel="canonical" href="https://docs.exolane.com/security/risk-disclosure.html">
+  <meta property="og:title" content="Risk Disclosure | Exolane Docs">
+  <meta property="og:description" content="Important risks to understand before using Exolane">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://docs.exolane.com/security/risk-disclosure.html">
+  <meta property="og:site_name" content="Exolane Docs">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@exolanedex">
+  <meta name="twitter:title" content="Risk Disclosure | Exolane Docs">
+  <meta name="twitter:description" content="Important risks to understand before using Exolane">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Risk Disclosure | Exolane Docs",
+    "description": "Important risks to understand before using Exolane",
+    "url": "https://docs.exolane.com/security/risk-disclosure.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Exolane",
+      "url": "https://exolane.com"
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Exolane Docs",
+      "url": "https://docs.exolane.com"
+    }
+  }
+  </script>
+  <style>
+/* ─── CSS Reset & Variables ─────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root {
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'SF Mono', 'Fira Code', 'Fira Mono', Menlo, Consolas, monospace;
+
+  /* Spacing */
+  --sidebar-width: 280px;
+  --toc-width: 220px;
+  --content-max: 780px;
+  --header-height: 56px;
+
+  /* Transitions */
+  --transition: 150ms ease;
+}
+
+/* ─── Dark Theme (default) ──────────────────────────── */
+[data-theme="dark"] {
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-tertiary: #1c2128;
+  --bg-hover: #21262d;
+  --bg-active: rgba(56, 139, 253, 0.1);
+  --border: #30363d;
+  --border-light: #21262d;
+  --text-primary: #e6edf3;
+  --text-secondary: #8b949e;
+  --text-tertiary: #6e7681;
+  --text-link: #58a6ff;
+  --text-link-hover: #79c0ff;
+  --accent: #58a6ff;
+  --accent-bg: rgba(56, 139, 253, 0.15);
+  --code-bg: #161b22;
+  --code-border: #30363d;
+  --table-stripe: rgba(255,255,255,0.02);
+  --hint-info-bg: rgba(56, 139, 253, 0.08);
+  --hint-info-border: #1f6feb;
+  --hint-warning-bg: rgba(210, 153, 34, 0.08);
+  --hint-warning-border: #d29922;
+  --hint-success-bg: rgba(46, 160, 67, 0.08);
+  --hint-success-border: #2ea043;
+  --hint-danger-bg: rgba(248, 81, 73, 0.08);
+  --hint-danger-border: #f85149;
+  --scrollbar-thumb: #30363d;
+  --scrollbar-track: transparent;
+  --shadow: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.4);
+  color-scheme: dark;
+}
+
+/* ─── Light Theme ───────────────────────────────────── */
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f6f8fa;
+  --bg-tertiary: #f0f2f5;
+  --bg-hover: #eaeef2;
+  --bg-active: rgba(9, 105, 218, 0.08);
+  --border: #d0d7de;
+  --border-light: #e8ebef;
+  --text-primary: #1f2328;
+  --text-secondary: #656d76;
+  --text-tertiary: #8c959f;
+  --text-link: #0969da;
+  --text-link-hover: #0550ae;
+  --accent: #0969da;
+  --accent-bg: rgba(9, 105, 218, 0.08);
+  --code-bg: #f6f8fa;
+  --code-border: #d0d7de;
+  --table-stripe: rgba(0,0,0,0.02);
+  --hint-info-bg: rgba(9, 105, 218, 0.06);
+  --hint-info-border: #0969da;
+  --hint-warning-bg: rgba(154, 103, 0, 0.06);
+  --hint-warning-border: #9a6700;
+  --hint-success-bg: rgba(26, 127, 55, 0.06);
+  --hint-success-border: #1a7f37;
+  --hint-danger-bg: rgba(207, 34, 46, 0.06);
+  --hint-danger-border: #cf222e;
+  --scrollbar-thumb: #c1c8cd;
+  --scrollbar-track: transparent;
+  --shadow: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+  color-scheme: light;
+}
+
+/* ─── Base ──────────────────────────────────────────── */
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-tertiary); }
+
+/* ─── Header ────────────────────────────────────────── */
+.header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--header-height);
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 100;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  min-width: var(--sidebar-width);
+  padding-left: 8px;
+}
+
+.header-logo svg { flex-shrink: 0; }
+
+.header-spacer {
+  flex: 1;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ─── Search ────────────────────────────────────────── */
+.search-trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  font-size: 14px;
+  width: 100%;
+  max-width: 400px;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.search-trigger:hover {
+  border-color: var(--text-tertiary);
+}
+
+.search-trigger kbd {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  padding: 2px 6px;
+  background: var(--bg-hover);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-tertiary);
+  margin-left: auto;
+}
+
+.search-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 200;
+  justify-content: center;
+  padding-top: 15vh;
+}
+
+.search-overlay.active { display: flex; }
+
+.search-modal {
+  width: 90%;
+  max-width: 600px;
+  max-height: 70vh;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+}
+
+.search-input-wrap {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  gap: 10px;
+}
+
+.search-input-wrap svg { flex-shrink: 0; color: var(--text-tertiary); }
+
+.search-input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+}
+
+.search-input::placeholder { color: var(--text-tertiary); }
+
+.search-results {
+  overflow-y: auto;
+  padding: 8px;
+  flex: 1;
+}
+
+.search-result {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: background var(--transition);
+}
+
+.search-result:hover, .search-result.focused {
+  background: var(--bg-hover);
+}
+
+.search-result-title {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.search-result-preview {
+  font-size: 13px;
+  color: var(--text-secondary);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.search-result mark {
+  background: var(--accent-bg);
+  color: var(--accent);
+  border-radius: 2px;
+  padding: 0 2px;
+}
+
+.search-empty {
+  text-align: center;
+  padding: 32px 16px;
+  color: var(--text-tertiary);
+  font-size: 14px;
+}
+
+/* ─── Layout ────────────────────────────────────────── */
+.layout {
+  display: flex;
+  margin-top: var(--header-height);
+  min-height: calc(100vh - var(--header-height));
+}
+
+/* ─── Sidebar ───────────────────────────────────────── */
+.sidebar {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  bottom: 0;
+  width: var(--sidebar-width);
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border-light);
+  overflow-y: auto;
+  padding: 20px 0;
+  z-index: 50;
+  transition: transform 0.25s ease;
+}
+
+.nav-group-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-tertiary);
+  padding: 20px 20px 6px;
+}
+
+.nav-group-title:first-child {
+  padding-top: 4px;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 4px;
+}
+
+.nav-list li a {
+  display: block;
+  padding: 6px 20px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  transition: all var(--transition);
+  line-height: 1.4;
+}
+
+.nav-list li a:hover {
+  color: var(--text-primary);
+  background: var(--bg-hover);
+}
+
+.nav-list li.active a {
+  color: var(--accent);
+  background: var(--bg-active);
+  border-left-color: var(--accent);
+  font-weight: 500;
+}
+
+/* ─── Main Content ──────────────────────────────────── */
+.main {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.content-wrapper {
+  display: flex;
+  width: 100%;
+  max-width: calc(var(--content-max) + var(--toc-width) + 80px);
+}
+
+.content {
+  flex: 1;
+  max-width: var(--content-max);
+  padding: 40px 40px 80px;
+  min-width: 0;
+}
+
+/* ─── Table of Contents ─────────────────────────────── */
+.toc {
+  position: sticky;
+  top: calc(var(--header-height) + 24px);
+  width: var(--toc-width);
+  max-height: calc(100vh - var(--header-height) - 48px);
+  overflow-y: auto;
+  padding: 24px 0 24px 24px;
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+
+.toc-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-tertiary);
+  margin-bottom: 12px;
+}
+
+.toc ul {
+  list-style: none;
+  padding: 0;
+  border-left: 1px solid var(--border);
+}
+
+.toc li a {
+  display: block;
+  padding: 4px 0 4px 14px;
+  font-size: 13px;
+  color: var(--text-tertiary);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  margin-left: -1px;
+  transition: all var(--transition);
+  line-height: 1.4;
+}
+
+.toc li a:hover {
+  color: var(--text-secondary);
+}
+
+.toc li a.active {
+  color: var(--accent);
+  border-left-color: var(--accent);
+}
+
+.toc li.toc-sub a {
+  padding-left: 28px;
+  font-size: 12px;
+}
+
+/* ─── Content Typography ────────────────────────────── */
+.content h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.content h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 40px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.content h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 32px 0 12px;
+  line-height: 1.35;
+}
+
+.content h4, .content h5, .content h6 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 24px 0 8px;
+}
+
+.heading-anchor {
+  color: var(--text-tertiary);
+  text-decoration: none;
+  margin-right: 6px;
+  opacity: 0;
+  transition: opacity var(--transition);
+  font-weight: 400;
+}
+
+.content h1:hover .heading-anchor,
+.content h2:hover .heading-anchor,
+.content h3:hover .heading-anchor,
+.content h4:hover .heading-anchor {
+  opacity: 1;
+}
+
+.content p {
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+
+.content a {
+  color: var(--text-link);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.content a:hover {
+  color: var(--text-link-hover);
+  text-decoration: underline;
+}
+
+.content strong { font-weight: 600; }
+.content em { font-style: italic; }
+
+.content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 32px 0;
+}
+
+/* Lists */
+.content .doc-list {
+  padding-left: 24px;
+  margin-bottom: 16px;
+}
+
+.content .doc-list li {
+  margin-bottom: 6px;
+  line-height: 1.6;
+}
+
+.content .doc-list li::marker {
+  color: var(--text-tertiary);
+}
+
+/* Code */
+.content code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background: var(--code-bg);
+  border: 1px solid var(--code-border);
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+
+.code-block {
+  margin-bottom: 16px;
+  border-radius: 8px;
+  border: 1px solid var(--code-border);
+  overflow: hidden;
+  background: var(--code-bg);
+}
+
+.code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--code-border);
+  background: var(--bg-hover);
+}
+
+.code-lang {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.copy-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-tertiary);
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  transition: all var(--transition);
+}
+
+.copy-btn:hover {
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+}
+
+.code-block pre {
+  margin: 0;
+  padding: 16px;
+  overflow-x: auto;
+}
+
+.code-block code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+/* Tables */
+.table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.content table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.content th {
+  text-align: left;
+  padding: 10px 16px;
+  font-weight: 600;
+  background: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border);
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.content td {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.content tr:last-child td {
+  border-bottom: none;
+}
+
+.content tr:nth-child(even) td {
+  background: var(--table-stripe);
+}
+
+/* Blockquote */
+.content blockquote {
+  border-left: 3px solid var(--accent);
+  padding: 12px 20px;
+  margin: 0 0 16px;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  border-radius: 0 6px 6px 0;
+}
+
+/* Hints (callouts) */
+.hint {
+  display: flex;
+  gap: 12px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  border-left: 3px solid;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.hint-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+  line-height: 1.5;
+}
+
+.hint-content p { margin-bottom: 4px; }
+.hint-content p:last-child { margin-bottom: 0; }
+
+.hint-info { background: var(--hint-info-bg); border-color: var(--hint-info-border); }
+.hint-warning { background: var(--hint-warning-bg); border-color: var(--hint-warning-border); }
+.hint-success { background: var(--hint-success-bg); border-color: var(--hint-success-border); }
+.hint-danger { background: var(--hint-danger-bg); border-color: var(--hint-danger-border); }
+.hint-tip { background: var(--hint-info-bg); border-color: var(--hint-info-border); }
+
+/* Images & Figures */
+.content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.doc-figure {
+  margin: 24px 0;
+  text-align: center;
+}
+
+.doc-figure figcaption {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  margin-top: 8px;
+}
+
+/* ─── Prev / Next ───────────────────────────────────── */
+.prev-next {
+  display: flex;
+  gap: 16px;
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.prev-next-link {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 20px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: all var(--transition);
+}
+
+.prev-next-link:hover {
+  border-color: var(--accent);
+  background: var(--bg-secondary);
+  text-decoration: none;
+}
+
+.prev-next-link.next { text-align: right; }
+
+.prev-next-label {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin-bottom: 4px;
+}
+
+.prev-next-title {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--accent);
+}
+
+/* ─── Theme Toggle ──────────────────────────────────── */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  padding: 6px 8px;
+  display: flex;
+  align-items: center;
+  transition: all var(--transition);
+}
+
+.theme-toggle:hover {
+  color: var(--text-primary);
+  border-color: var(--text-tertiary);
+}
+
+.theme-toggle .sun { display: none; }
+.theme-toggle .moon { display: block; }
+[data-theme="light"] .theme-toggle .sun { display: block; }
+[data-theme="light"] .theme-toggle .moon { display: none; }
+
+/* ─── Mobile Menu Toggle ────────────────────────────── */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  padding: 6px 8px;
+  align-items: center;
+}
+
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  top: var(--header-height);
+  background: rgba(0,0,0,0.5);
+  z-index: 40;
+}
+
+/* ─── Responsive ────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .toc { display: none; }
+  .content { max-width: 100%; }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .sidebar-overlay.open {
+    display: block;
+  }
+
+  .main {
+    margin-left: 0;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .header-logo {
+    min-width: auto;
+  }
+
+  .content {
+    padding: 24px 16px 60px;
+  }
+
+  .search-trigger {
+    max-width: 44px;
+    padding: 6px 10px;
+  }
+
+  .search-trigger span, .search-trigger kbd { display: none; }
+
+  .prev-next {
+    flex-direction: column;
+  }
+
+  .prev-next-link.next { text-align: left; }
+
+  .content h1 { font-size: 1.6rem; }
+  .content h2 { font-size: 1.3rem; }
+}
+
+/* ─── Hero Banner (Landing Page) ─────────────────────── */
+.hero-banner {
+  position: relative;
+  width: 100%;
+  margin: 8px -40px 32px -40px;
+  width: calc(100% + 80px);
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 30%, #0f2440 60%, #162a4a 100%);
+}
+
+.hero-banner-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 2;
+}
+
+.hero-banner-tagline {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-banner-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+.hero-banner-subtitle {
+  font-size: 15px;
+  color: rgba(255,255,255,0.55);
+  max-width: 420px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* Decorative grid overlay */
+.hero-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(88, 166, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(88, 166, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: 0;
+}
+
+/* Decorative glow spots */
+.hero-banner::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(88, 166, 255, 0.12) 0%, transparent 70%);
+  top: -80px;
+  right: -40px;
+  z-index: 1;
+}
+
+.hero-glow-left {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+  bottom: -60px;
+  left: -30px;
+  z-index: 1;
+}
+
+/* Decorative hexagon logo in banner */
+.hero-logo {
+  opacity: 0.15;
+  position: absolute;
+  right: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+[data-theme="light"] .hero-banner {
+  background: linear-gradient(135deg, #e8eef6 0%, #dbe4f0 30%, #cdd8e8 60%, #d5deec 100%);
+}
+
+[data-theme="light"] .hero-banner::before {
+  background-image: 
+    linear-gradient(rgba(9, 105, 218, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(9, 105, 218, 0.06) 1px, transparent 1px);
+}
+
+[data-theme="light"] .hero-banner::after {
+  background: radial-gradient(circle, rgba(9, 105, 218, 0.1) 0%, transparent 70%);
+}
+
+[data-theme="light"] .hero-glow-left {
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
+}
+
+[data-theme="light"] .hero-banner-tagline { color: rgba(0,0,0,0.45); }
+[data-theme="light"] .hero-banner-title { color: #1f2328; }
+[data-theme="light"] .hero-banner-subtitle { color: rgba(0,0,0,0.5); }
+[data-theme="light"] .hero-logo { opacity: 0.08; }
+
+@media (max-width: 768px) {
+  .hero-banner {
+    margin: 8px -16px 24px -16px;
+    width: calc(100% + 32px);
+    height: 160px;
+    border-radius: 10px;
+  }
+  .hero-banner-title { font-size: 22px; }
+  .hero-banner-subtitle { font-size: 13px; }
+  .hero-logo { display: none; }
+}
+
+/* ─── Print ─────────────────────────────────────────── */
+@media print {
+  .header, .sidebar, .toc, .prev-next, .search-overlay { display: none !important; }
+  .main { margin-left: 0; }
+  .content { max-width: 100%; padding: 0; }
+  body { background: white; color: black; }
+}
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <button class="menu-toggle" onclick="toggleSidebar()" aria-label="Toggle menu">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+
+  <a href="/" class="header-logo">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 100 100">
+      <defs>
+        <mask id="logoMask">
+          <rect width="150" height="100" fill="white"/>
+          <polygon points="50,30 70,50 50,70 30,50" fill="black"/>
+        </mask>
+      </defs>
+      <g mask="url(#logoMask)">
+        <polygon points="25,15 75,15 95,50 75,85 25,85 5,50" fill="#cfc9c8"/>
+        <polygon points="5,50 25,85 50,50 25,15" fill="#817979"/>
+      </g>
+    </svg>
+    <span>Exolane Docs</span>
+  </a>
+
+  <div class="header-spacer"></div>
+
+  <div class="header-actions">
+    <button class="search-trigger" onclick="openSearch()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <span>Search docs…</span>
+      <kbd>⌘K</kbd>
+    </button>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+      <svg class="sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- Sidebar -->
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+<aside class="sidebar" id="sidebar">
+  <div class="nav-group-title">Getting Started</div>
+<ul class="nav-list">
+<li><a href="/index.html">Welcome to Exolane</a></li>
+<li><a href="/getting-started/what-is-exolane.html">What is Exolane?</a></li>
+<li><a href="/getting-started/quick-start.html">Quick Start Guide</a></li>
+</ul>
+<div class="nav-group-title">Trading</div>
+<ul class="nav-list">
+<li><a href="/trading/index.html">Trading Overview</a></li>
+<li><a href="/trading/opening-positions.html">Opening a Position</a></li>
+<li><a href="/trading/managing-positions.html">Managing Positions</a></li>
+<li><a href="/trading/closing-positions.html">Closing Positions</a></li>
+<li><a href="/trading/collateral-and-margin.html">Collateral & Margin</a></li>
+<li><a href="/trading/leverage.html">Leverage</a></li>
+<li><a href="/trading/order-types.html">Order Types</a></li>
+</ul>
+<div class="nav-group-title">Protocol Mechanics</div>
+<ul class="nav-list">
+<li><a href="/protocol/index.html">Protocol Overview</a></li>
+<li><a href="/protocol/funding-rates.html">Funding Rates</a></li>
+<li><a href="/protocol/fees.html">Fee Structure</a></li>
+<li><a href="/protocol/liquidations.html">Liquidations</a></li>
+<li><a href="/protocol/oracles.html">Oracle System</a></li>
+<li><a href="/protocol/settlement.html">Settlement</a></li>
+</ul>
+<div class="nav-group-title">Markets</div>
+<ul class="nav-list">
+<li><a href="/markets/index.html">Available Markets</a></li>
+<li><a href="/markets/parameters.html">Market Parameters</a></li>
+</ul>
+<div class="nav-group-title">Security</div>
+<ul class="nav-list">
+<li><a href="/security/index.html">Security Overview</a></li>
+<li><a href="/security/audits.html">Audits</a></li>
+<li class="active"><a href="/security/risk-disclosure.html">Risk Disclosure</a></li>
+</ul>
+<div class="nav-group-title">Resources</div>
+<ul class="nav-list">
+<li><a href="/resources/faq.html">FAQ</a></li>
+<li><a href="/resources/glossary.html">Glossary</a></li>
+<li><a href="/resources/links.html">Official Links</a></li>
+</ul>
+<div class="nav-group-title">Legal</div>
+<ul class="nav-list">
+<li><a href="/legal/terms.html">Terms of Service</a></li>
+<li><a href="/legal/privacy.html">Privacy Policy</a></li>
+</ul>
+</aside>
+
+<!-- Main -->
+<div class="layout">
+  <main class="main">
+    <div class="content-wrapper">
+      <article class="content">
+        <h1 id="risk-disclosure"><a href="#risk-disclosure" class="heading-anchor">#</a>Risk Disclosure</h1>
+<div class="hint hint-danger"><span class="hint-icon">🚨</span><div class="hint-content"><p><strong>WARNING: Trading leveraged products involves significant risk of loss.</strong></p>
+<p>You can lose some or all of your invested capital. Only trade with money you can afford to lose. This is not financial advice.</p></div></div>
+<h2 id="overview"><a href="#overview" class="heading-anchor">#</a>Overview</h2>
+<p>Before using Exolane, you must understand and accept the following risks. This is not an exhaustive list, and other risks may exist.</p>
+<hr>
+<h2 id="trading-risks"><a href="#trading-risks" class="heading-anchor">#</a>Trading Risks</h2>
+<h3 id="leverage-risk"><a href="#leverage-risk" class="heading-anchor">#</a>Leverage Risk</h3>
+<p>Leverage amplifies both gains AND losses.</p>
+<div class="table-wrapper"><table>
+<thead><tr>
+<th>Leverage</th>
+<th>10% Price Move Against You</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>1x</td>
+<td>10% loss</td>
+</tr>
+<tr>
+<td>5x</td>
+<td>50% loss</td>
+</tr>
+<tr>
+<td>10x</td>
+<td>100% loss (liquidation)</td>
+</tr>
+<tr>
+<td>20x</td>
+<td>Liquidation at 5% move</td>
+</tr>
+</tbody></table></div>
+<p><strong>Your entire collateral can be lost</strong> if the market moves against your position.</p>
+<h3 id="liquidation-risk"><a href="#liquidation-risk" class="heading-anchor">#</a>Liquidation Risk</h3>
+<p>If your position's margin falls below maintenance requirements:</p>
+<ul class="doc-list">
+<li>Your position will be forcibly closed</li>
+<li>You may lose most or all of your collateral</li>
+<li>You have no control over when this happens</li>
+<li>Stop-losses may not execute in time during fast markets</li>
+</ul>
+<h3 id="funding-rate-risk"><a href="#funding-rate-risk" class="heading-anchor">#</a>Funding Rate Risk</h3>
+<p>While Exolane caps funding at ±15% APR, this is still a significant cost:</p>
+<ul class="doc-list">
+<li>15% per year = ~1.25% per month</li>
+<li>Long-term positions in the wrong direction can be costly</li>
+<li>Funding direction can change</li>
+</ul>
+<h3 id="market-risk"><a href="#market-risk" class="heading-anchor">#</a>Market Risk</h3>
+<p>Cryptocurrency markets are highly volatile:</p>
+<ul class="doc-list">
+<li>Prices can move 10%+ in hours</li>
+<li>Flash crashes occur</li>
+<li>Extreme volatility during news events</li>
+<li>24/7 markets mean risk while you sleep</li>
+</ul>
+<hr>
+<h2 id="protocol-risks"><a href="#protocol-risks" class="heading-anchor">#</a>Protocol Risks</h2>
+<h3 id="smart-contract-risk"><a href="#smart-contract-risk" class="heading-anchor">#</a>Smart Contract Risk</h3>
+<p>Despite audits, smart contracts may contain bugs:</p>
+<ul class="doc-list">
+<li>Undiscovered vulnerabilities may exist</li>
+<li>Complex interactions may have unintended effects</li>
+<li>Exploits could result in loss of funds</li>
+<li>Audits reduce but do not eliminate risk</li>
+</ul>
+<h3 id="oracle-risk"><a href="#oracle-risk" class="heading-anchor">#</a>Oracle Risk</h3>
+<p>Exolane relies on Pyth Network for prices:</p>
+<ul class="doc-list">
+<li>Oracle failures could affect trading</li>
+<li>Oracle manipulation, while difficult, may be possible</li>
+<li>Stale prices could impact liquidations</li>
+<li>Oracle downtime pauses all trading</li>
+</ul>
+<h3 id="systemic-risk"><a href="#systemic-risk" class="heading-anchor">#</a>Systemic Risk</h3>
+<p>The protocol as a whole may face risks:</p>
+<ul class="doc-list">
+<li>Unforeseen economic attacks</li>
+<li>Cascading liquidations</li>
+<li>Extreme market conditions</li>
+<li>Interoperability issues</li>
+</ul>
+<hr>
+<h2 id="technical-risks"><a href="#technical-risks" class="heading-anchor">#</a>Technical Risks</h2>
+<h3 id="blockchain-risk"><a href="#blockchain-risk" class="heading-anchor">#</a>Blockchain Risk</h3>
+<p>Arbitrum and Ethereum may experience:</p>
+<ul class="doc-list">
+<li>Network congestion delaying transactions</li>
+<li>Sequencer downtime</li>
+<li>Chain reorganizations</li>
+<li>Bridge vulnerabilities</li>
+</ul>
+<h3 id="wallet-risk"><a href="#wallet-risk" class="heading-anchor">#</a>Wallet Risk</h3>
+<p>Your wallet security is your responsibility:</p>
+<ul class="doc-list">
+<li>Private key compromise = total loss</li>
+<li>Phishing attacks</li>
+<li>Malicious approvals</li>
+<li>Hardware failures</li>
+</ul>
+<h3 id="interface-risk"><a href="#interface-risk" class="heading-anchor">#</a>Interface Risk</h3>
+<p>The web interface may have issues:</p>
+<ul class="doc-list">
+<li>Bugs in the frontend</li>
+<li>Incorrect price displays</li>
+<li>Failed transactions</li>
+<li>Connectivity problems</li>
+</ul>
+<hr>
+<h2 id="economic-risks"><a href="#economic-risks" class="heading-anchor">#</a>Economic Risks</h2>
+<h3 id="collateral-risk"><a href="#collateral-risk" class="heading-anchor">#</a>Collateral Risk</h3>
+<p>USDC is the only accepted collateral:</p>
+<ul class="doc-list">
+<li>USDC depegging would affect collateral value</li>
+<li>Circle (USDC issuer) risks</li>
+<li>Regulatory risks to stablecoins</li>
+</ul>
+<h3 id="counterparty-risk"><a href="#counterparty-risk" class="heading-anchor">#</a>Counterparty Risk</h3>
+<p>While non-custodial, risks exist:</p>
+<ul class="doc-list">
+<li>Protocol insolvency in extreme scenarios</li>
+<li>Vault liquidity issues</li>
+<li>Bad debt socialization</li>
+</ul>
+<hr>
+<h2 id="external-risks"><a href="#external-risks" class="heading-anchor">#</a>External Risks</h2>
+<h3 id="regulatory-risk"><a href="#regulatory-risk" class="heading-anchor">#</a>Regulatory Risk</h3>
+<p>Cryptocurrency regulation is evolving:</p>
+<ul class="doc-list">
+<li>Laws may change in your jurisdiction</li>
+<li>Access may be restricted</li>
+<li>Reporting requirements may apply</li>
+<li>Legal status may be uncertain</li>
+</ul>
+<h3 id="tax-risk"><a href="#tax-risk" class="heading-anchor">#</a>Tax Risk</h3>
+<p>Trading may have tax implications:</p>
+<ul class="doc-list">
+<li>Capital gains taxes</li>
+<li>Reporting requirements</li>
+<li>Vary by jurisdiction</li>
+<li>Consult a tax professional</li>
+</ul>
+<hr>
+<h2 id="what-exolane-does-not-guarantee"><a href="#what-exolane-does-not-guarantee" class="heading-anchor">#</a>What Exolane DOES NOT Guarantee</h2>
+<div class="table-wrapper"><table>
+<thead><tr>
+<th>NOT Guaranteed</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Profits</td>
+</tr>
+<tr>
+<td>Protection from losses</td>
+</tr>
+<tr>
+<td>Uptime</td>
+</tr>
+<tr>
+<td>Price accuracy</td>
+</tr>
+<tr>
+<td>Bug-free code</td>
+</tr>
+<tr>
+<td>Regulatory compliance in your jurisdiction</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2 id="what-exolane-does-provide"><a href="#what-exolane-does-provide" class="heading-anchor">#</a>What Exolane DOES Provide</h2>
+<div class="table-wrapper"><table>
+<thead><tr>
+<th>Provided</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Non-custodial design</td>
+</tr>
+<tr>
+<td>Audited smart contracts</td>
+</tr>
+<tr>
+<td>Capped funding rates</td>
+</tr>
+<tr>
+<td>Transparent fee structure</td>
+</tr>
+<tr>
+<td>Oracle-based fair settlement</td>
+</tr>
+<tr>
+<td>No liquidation penalties</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2 id="risk-mitigation-strategies"><a href="#risk-mitigation-strategies" class="heading-anchor">#</a>Risk Mitigation Strategies</h2>
+<p>While risks cannot be eliminated, you can reduce them:</p>
+<h3 id="1-use-appropriate-leverage"><a href="#1-use-appropriate-leverage" class="heading-anchor">#</a>1. Use Appropriate Leverage</h3>
+<div class="code-block"><div class="code-header"><span class="code-lang">text</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.closest('.code-block').querySelector('code').textContent)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></button></div><pre><code class="language-">Lower leverage = More room for error
+Start with 2-5x until experienced</code></pre></div>
+<h3 id="2-always-use-stop-losses"><a href="#2-always-use-stop-losses" class="heading-anchor">#</a>2. Always Use Stop-Losses</h3>
+<div class="code-block"><div class="code-header"><span class="code-lang">text</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.closest('.code-block').querySelector('code').textContent)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></button></div><pre><code class="language-">Define your max loss BEFORE entering
+Never remove stop-loss &quot;to give it room&quot;</code></pre></div>
+<h3 id="3-size-positions-appropriately"><a href="#3-size-positions-appropriately" class="heading-anchor">#</a>3. Size Positions Appropriately</h3>
+<div class="code-block"><div class="code-header"><span class="code-lang">text</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.closest('.code-block').querySelector('code').textContent)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></button></div><pre><code class="language-">Risk no more than 1-2% of capital per trade
+Diversify across positions</code></pre></div>
+<h3 id="4-secure-your-wallet"><a href="#4-secure-your-wallet" class="heading-anchor">#</a>4. Secure Your Wallet</h3>
+<div class="code-block"><div class="code-header"><span class="code-lang">text</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.closest('.code-block').querySelector('code').textContent)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></button></div><pre><code class="language-">Use hardware wallet
+Never share private keys
+Verify all transactions</code></pre></div>
+<h3 id="5-monitor-positions"><a href="#5-monitor-positions" class="heading-anchor">#</a>5. Monitor Positions</h3>
+<div class="code-block"><div class="code-header"><span class="code-lang">text</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.closest('.code-block').querySelector('code').textContent)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></button></div><pre><code class="language-">Set alerts for significant moves
+Don't leave max-leverage positions unmonitored
+Have a plan for various scenarios</code></pre></div>
+<h3 id="6-understand-before-trading"><a href="#6-understand-before-trading" class="heading-anchor">#</a>6. Understand Before Trading</h3>
+<div class="code-block"><div class="code-header"><span class="code-lang">text</span><button class="copy-btn" onclick="navigator.clipboard.writeText(this.closest('.code-block').querySelector('code').textContent)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></button></div><pre><code class="language-">Paper trade first if unsure
+Start with small amounts
+Learn from each trade</code></pre></div>
+<hr>
+<h2 id="eligibility"><a href="#eligibility" class="heading-anchor">#</a>Eligibility</h2>
+<p>By using Exolane, you represent that:</p>
+<ul class="doc-list">
+<li>You are of legal age in your jurisdiction</li>
+<li>You are not in a restricted jurisdiction</li>
+<li>You understand the risks involved</li>
+<li>You can afford to lose your investment</li>
+<li>You are not using borrowed funds you cannot repay</li>
+</ul>
+<hr>
+<h2 id="acknowledgment"><a href="#acknowledgment" class="heading-anchor">#</a>Acknowledgment</h2>
+<p>By using Exolane, you acknowledge that:</p>
+<ol class="doc-list">
+<li>You have read and understood this risk disclosure</li>
+<li>You accept all risks associated with trading</li>
+<li>You will not hold Exolane liable for any losses</li>
+<li>Trading decisions are your sole responsibility</li>
+<li>Past performance does not indicate future results</li>
+</ol>
+<hr>
+<h2 id="questions"><a href="#questions" class="heading-anchor">#</a>Questions?</h2>
+<p>If you have questions about risks:</p>
+<ul class="doc-list">
+<li>Review our documentation thoroughly</li>
+<li>Ask in community channels</li>
+<li>Do not trade if you are uncertain</li>
+</ul>
+<div class="hint hint-warning"><span class="hint-icon">⚠️</span><div class="hint-content"><p><strong>Remember:</strong> Only trade with funds you can afford to lose entirely. If losing your investment would significantly impact your life, do not trade.</p></div></div>
+        <div class="prev-next">
+<a href="/security/audits.html" class="prev-next-link prev"><span class="prev-next-label">← Previous</span><span class="prev-next-title">Audits</span></a>
+<a href="/resources/faq.html" class="prev-next-link next"><span class="prev-next-label">Next →</span><span class="prev-next-title">FAQ</span></a>
+</div>
+      </article>
+      <nav class="toc"><div class="toc-title">On this page</div><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#trading-risks">Trading Risks</a></li>
+<li class="toc-sub"><a href="#leverage-risk">Leverage Risk</a></li>
+<li class="toc-sub"><a href="#liquidation-risk">Liquidation Risk</a></li>
+<li class="toc-sub"><a href="#funding-rate-risk">Funding Rate Risk</a></li>
+<li class="toc-sub"><a href="#market-risk">Market Risk</a></li>
+<li><a href="#protocol-risks">Protocol Risks</a></li>
+<li class="toc-sub"><a href="#smart-contract-risk">Smart Contract Risk</a></li>
+<li class="toc-sub"><a href="#oracle-risk">Oracle Risk</a></li>
+<li class="toc-sub"><a href="#systemic-risk">Systemic Risk</a></li>
+<li><a href="#technical-risks">Technical Risks</a></li>
+<li class="toc-sub"><a href="#blockchain-risk">Blockchain Risk</a></li>
+<li class="toc-sub"><a href="#wallet-risk">Wallet Risk</a></li>
+<li class="toc-sub"><a href="#interface-risk">Interface Risk</a></li>
+<li><a href="#economic-risks">Economic Risks</a></li>
+<li class="toc-sub"><a href="#collateral-risk">Collateral Risk</a></li>
+<li class="toc-sub"><a href="#counterparty-risk">Counterparty Risk</a></li>
+<li><a href="#external-risks">External Risks</a></li>
+<li class="toc-sub"><a href="#regulatory-risk">Regulatory Risk</a></li>
+<li class="toc-sub"><a href="#tax-risk">Tax Risk</a></li>
+<li><a href="#what-exolane-does-not-guarantee">What Exolane DOES NOT Guarantee</a></li>
+<li><a href="#what-exolane-does-provide">What Exolane DOES Provide</a></li>
+<li><a href="#risk-mitigation-strategies">Risk Mitigation Strategies</a></li>
+<li class="toc-sub"><a href="#1-use-appropriate-leverage">1. Use Appropriate Leverage</a></li>
+<li class="toc-sub"><a href="#2-always-use-stop-losses">2. Always Use Stop-Losses</a></li>
+<li class="toc-sub"><a href="#3-size-positions-appropriately">3. Size Positions Appropriately</a></li>
+<li class="toc-sub"><a href="#4-secure-your-wallet">4. Secure Your Wallet</a></li>
+<li class="toc-sub"><a href="#5-monitor-positions">5. Monitor Positions</a></li>
+<li class="toc-sub"><a href="#6-understand-before-trading">6. Understand Before Trading</a></li>
+<li><a href="#eligibility">Eligibility</a></li>
+<li><a href="#acknowledgment">Acknowledgment</a></li>
+<li><a href="#questions">Questions?</a></li>
+</ul></nav>
+    </div>
+  </main>
+</div>
+
+<!-- Search Modal -->
+<div class="search-overlay" id="searchOverlay" onclick="if(event.target===this)closeSearch()">
+  <div class="search-modal">
+    <div class="search-input-wrap">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" class="search-input" id="searchInput" placeholder="Search documentation…" autocomplete="off" autofocus>
+    </div>
+    <div class="search-results" id="searchResults">
+      <div class="search-empty">Type to search…</div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ─── Theme ─────────────────────────────────────────── */
+(function(){
+  const saved = localStorage.getItem('theme');
+  if (saved) document.documentElement.dataset.theme = saved;
+  else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+    document.documentElement.dataset.theme = 'light';
+  }
+})();
+
+function toggleTheme() {
+  const html = document.documentElement;
+  const next = html.dataset.theme === 'dark' ? 'light' : 'dark';
+  html.dataset.theme = next;
+  localStorage.setItem('theme', next);
+}
+
+/* ─── Mobile Sidebar ────────────────────────────────── */
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+  document.querySelector('.sidebar-overlay').classList.toggle('open');
+}
+
+// Close sidebar on nav click (mobile)
+document.querySelectorAll('.sidebar a').forEach(a => {
+  a.addEventListener('click', () => {
+    document.getElementById('sidebar').classList.remove('open');
+    document.querySelector('.sidebar-overlay').classList.remove('open');
+  });
+});
+
+/* ─── Search ────────────────────────────────────────── */
+let searchIndex = null;
+let focusedIdx = -1;
+
+async function loadSearchIndex() {
+  if (searchIndex) return;
+  try {
+    const res = await fetch('/assets/search-index.json');
+    searchIndex = await res.json();
+  } catch(e) { searchIndex = []; }
+}
+
+function openSearch() {
+  loadSearchIndex();
+  const overlay = document.getElementById('searchOverlay');
+  overlay.classList.add('active');
+  setTimeout(() => document.getElementById('searchInput').focus(), 50);
+}
+
+function closeSearch() {
+  document.getElementById('searchOverlay').classList.remove('active');
+  document.getElementById('searchInput').value = '';
+  document.getElementById('searchResults').innerHTML = '<div class="search-empty">Type to search…</div>';
+  focusedIdx = -1;
+}
+
+document.addEventListener('keydown', e => {
+  if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+    e.preventDefault();
+    openSearch();
+  }
+  if (e.key === 'Escape') closeSearch();
+
+  // Arrow nav in search results
+  if (document.getElementById('searchOverlay').classList.contains('active')) {
+    const results = document.querySelectorAll('.search-result');
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      focusedIdx = Math.min(focusedIdx + 1, results.length - 1);
+      results.forEach((r,i) => r.classList.toggle('focused', i === focusedIdx));
+    }
+    if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      focusedIdx = Math.max(focusedIdx - 1, 0);
+      results.forEach((r,i) => r.classList.toggle('focused', i === focusedIdx));
+    }
+    if (e.key === 'Enter' && focusedIdx >= 0 && results[focusedIdx]) {
+      results[focusedIdx].click();
+    }
+  }
+});
+
+document.getElementById('searchInput').addEventListener('input', function() {
+  const q = this.value.trim().toLowerCase();
+  if (!q || !searchIndex) {
+    document.getElementById('searchResults').innerHTML = '<div class="search-empty">Type to search…</div>';
+    focusedIdx = -1;
+    return;
+  }
+
+  const terms = q.split(/\s+/);
+  const matches = searchIndex
+    .map(page => {
+      const haystack = (page.title + ' ' + page.headings + ' ' + page.text).toLowerCase();
+      let score = 0;
+      for (const term of terms) {
+        if (page.title.toLowerCase().includes(term)) score += 10;
+        if (page.headings.toLowerCase().includes(term)) score += 5;
+        if (page.text.toLowerCase().includes(term)) score += 1;
+      }
+      return { ...page, score };
+    })
+    .filter(p => p.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 10);
+
+  if (matches.length === 0) {
+    document.getElementById('searchResults').innerHTML = '<div class="search-empty">No results found</div>';
+    focusedIdx = -1;
+    return;
+  }
+
+  const html = matches.map(m => {
+    let preview = m.text;
+    const firstTerm = terms[0];
+    const idx = preview.toLowerCase().indexOf(firstTerm);
+    if (idx > 40) preview = '…' + preview.slice(idx - 30);
+    if (preview.length > 150) preview = preview.slice(0, 150) + '…';
+    for (const term of terms) {
+      preview = preview.replace(new RegExp('(' + term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi'), '<mark>$1</mark>');
+    }
+    return `<a href="${m.path}" class="search-result"><div class="search-result-title">${m.title}</div><div class="search-result-preview">${preview}</div></a>`;
+  }).join('');
+
+  document.getElementById('searchResults').innerHTML = html;
+  focusedIdx = -1;
+});
+
+/* ─── ToC Active Tracking ───────────────────────────── */
+(function() {
+  const tocLinks = document.querySelectorAll('.toc a');
+  if (tocLinks.length === 0) return;
+
+  const observer = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(l => l.classList.remove('active'));
+        const link = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
+        if (link) link.classList.add('active');
+      }
+    }
+  }, { rootMargin: '-80px 0px -70% 0px', threshold: 0 });
+
+  document.querySelectorAll('.content h2[id], .content h3[id]').forEach(h => observer.observe(h));
+})();
+</script>
+
+</body>
+</html>
