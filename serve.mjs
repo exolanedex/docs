@@ -14,7 +14,7 @@ import { dirname } from 'node:path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const PORT = parseInt(process.argv.find((_, i, a) => a[i - 1] === '--port') || '3000');
+const PORT = parseInt(process.env.PORT || process.argv.find((_, i, a) => a[i - 1] === '--port') || '3000');
 const ROOT = join(__dirname, 'dist');
 
 const MIME_TYPES = {

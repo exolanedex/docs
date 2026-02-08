@@ -581,8 +581,28 @@ function build() {
   const startTime = Date.now();
   console.log('\n🔨 Building Exolane Docs...\n');
 
-  // Parse navigation
+  // Validate content directory exists
   const summaryPath = join(CONFIG.contentDir, 'SUMMARY.md');
+  if (!existsSync(CONFIG.contentDir)) {
+    console.error(`  ❌ Content directory not found: ${CONFIG.contentDir}`);
+    console.error(`  📂 Current dir: ${process.cwd()}`);
+    console.error(`  📂 __dirname: ${__dirname}`);
+    try {
+      const items = readdirSync(__dirname);
+      console.error(`  📂 Files in __dirname: ${items.join(', ')}`);
+    } catch (e) { /* ignore */ }
+    process.exit(1);
+  }
+  if (!existsSync(summaryPath)) {
+    console.error(`  ❌ SUMMARY.md not found: ${summaryPath}`);
+    try {
+      const items = readdirSync(CONFIG.contentDir);
+      console.error(`  📂 Files in content dir: ${items.join(', ')}`);
+    } catch (e) { /* ignore */ }
+    process.exit(1);
+  }
+
+  // Parse navigation
   const nav = parseSummary(summaryPath);
   const pages = flattenNav(nav);
 
